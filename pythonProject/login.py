@@ -1,12 +1,13 @@
 import database
 
-permission = "fm"
+permission = "none"
 
 
-def login(username, password) -> bool:
+def login(username="", password=""):
     if username in database.Employees.keys():
-        if database.Employees.values(username)[0] == password:
-            permission = database.Employees.values()[1]
-            return True
+        if database.Employees[username][1] == password:
+            global permission
+            permission = database.Employees[username][2]
+            return permission
         else:
-            return False
+            return permission
