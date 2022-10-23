@@ -3,7 +3,7 @@ from login import login
 
 
 def make_login_window():
-    layout = [[sg.Text('username'), sg.Input("John Doe", s=15, key="username")],
+    layout = [[sg.Text('username'), sg.Input("Jack", s=15, key="username")],
               [sg.Text('password'), sg.Input("12345", s=15, key="password")],
               [sg.Button("enter"), sg.Button("exit")]
               ]
