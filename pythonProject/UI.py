@@ -89,13 +89,20 @@ def make_main_window(permission):
 
     ]
 
-    layout = [test_layout,
-              [
-                  [sg.T('Swedish Events Planners SEP', font='_ 14', justification='c', expand_x=True)],
-                  [sg.Col(layout_workflow1), sg.Col(layout_workflow2)],
-                  [sg.Col(layout_workflow3), sg.Col(layout_workflow4)]
-              ]]
+    # layout = [test_layout,
+    #           [
+    #               [sg.T('Swedish Events Planners SEP', font='_ 14', justification='c', expand_x=True)],
+    #               [sg.Col(layout_workflow1), sg.Col(layout_workflow2)],
+    #               [sg.Col(layout_workflow3), sg.Col(layout_workflow4)]
+    #           ]]
+    layout = [[sg.T('Swedish Events Planners SEP', font='_ 14', justification='c', expand_x=True)],
+              [sg.TabGroup([[sg.Tab('test', test_layout),
+                              sg.Tab('workflow1', layout_workflow1),
+                              sg.Tab('workflow2', layout_workflow2),
+                              sg.Tab('workflow3', layout_workflow3),
+                              sg.Tab('workflow4', layout_workflow4)]], key='-TAB GROUP-', expand_x=True, expand_y=True),
 
+                ]]
     main_window = sg.Window('Swedish Events Planners SEP', layout)
     return main_window
 
